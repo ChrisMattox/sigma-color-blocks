@@ -5,11 +5,20 @@ $(document).ready(function() {
   pickRandomColor();
   createBlocks();
 
+  $("#block-container").on("click", ".color-block", function() {
+    if($(this).data('color') == currentColor) {
+      alert("You got it!");
+    } else {
+      $("#message").text("Nope! Keep trying!");
+    }
+  });
+
   function createBlocks() {
     for(var i = 0; i < colors.length; i++) {
       $("#block-container").append('<div class="color-block"></div>');
       var $el = $("#block-container").children().last();
       $el.css("background-color", colors[i]);
+      $el.data('color', colors[i]);
     }
   }
 
