@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  var colors = ["red", "magenta", "cyan", "brown", "coral", "orange"];
+  var colors = ["red", "magenta", "cyan", "blue", "coral", "orange"];
   var currentColor = "";
 
   pickRandomColor();
@@ -8,6 +8,7 @@ $(document).ready(function() {
   $("#block-container").on("click", ".color-block", function() {
     if($(this).data('color') == currentColor) {
       alert("You got it!");
+      pickRandomColor();
     } else {
       $("#message").text("Nope! Keep trying!");
     }
@@ -27,7 +28,7 @@ $(document).ready(function() {
   }
 
   function pickRandomColor() {
-    currentColor = colors[randomNumber(0, colors.length - 1)];
+    currentColor = colors[randomNumber(0, colors.length - 1)];    
     setPrompt();
   }
 
